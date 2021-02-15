@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ClaimsAndComplaints.Models.Reclaim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Reclamo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th>
+            Producto
+        </th>
+        <th>
+            Tipo de Reclamo
+        </th>
+        <th>
+            Fecha de Creación
+        </th>
+        <th>
+            Detalle
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            Cliente
+        </td>
+        <td>
+            Departamento
+        </td>
+        <td>
+            Producto
+        </td>
+        <td>
+            Tipo de Reclamo
+        </td>
+        <td>
+            Fecha de Creación
+        </td>
+        <td>
+            Detalle
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdReclaim }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.IdReclaim }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdReclaim })
+        </td>
+    </tr>
+}
+
+</table>

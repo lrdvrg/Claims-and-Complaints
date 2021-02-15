@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ClaimsAndComplaints.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre 
+        </th>
+        <th>
+            Documento de Identidad
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Correo Electronico
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdClient }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.IdClient }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.IdClient })
+        </td>
+    </tr>
+}
+
+</table>
